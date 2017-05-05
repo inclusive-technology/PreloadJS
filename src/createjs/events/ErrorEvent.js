@@ -42,9 +42,10 @@ this.createjs = this.createjs||{};
 	 * @param {String} [title] The error title
 	 * @param {String} [message] The error description
 	 * @param {Object} [data] Additional error data
+	 * @param {Object} [originalEvent] The original http event object
 	 * @constructor
 	 */
-	function ErrorEvent(title, message, data) {
+	function ErrorEvent(title, message, data, originalEvent) {
 		this.Event_constructor("error");
 
 		/**
@@ -67,6 +68,11 @@ this.createjs = this.createjs||{};
 		 * @type {Object}
 		 */
 		this.data = data;
+		
+		/**
+		 * The original event object contains the browser http error event info.
+		 */
+		this.originalEvent = originalEvent;
 	}
 
 	var p = createjs.extend(ErrorEvent, createjs.Event);

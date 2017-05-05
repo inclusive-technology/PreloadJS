@@ -1607,8 +1607,7 @@ this.createjs = this.createjs || {};
 		this._finishOrderedItem(loader, true);
 		this._updateProgress();
 
-		var newEvent = new createjs.ErrorEvent("FILE_LOAD_ERROR", null, loader.getItem());
-		// TODO: Propagate actual error message.
+		var newEvent = new createjs.ErrorEvent("FILE_LOAD_ERROR", null, loader.getItem(), event);
 
 		this._sendError(newEvent);
 
